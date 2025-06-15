@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nikul Suthar</title>
+  <style>
+    :root {
+      --bg: #f9fafc;
+      --text: #222;
+      --card: #ffffff;
+      --primary: #4b6cb7;
+    }
+
+    body.dark {
+      --bg: #1a1a1a;
+      --text: #e4e4e4;
+      --card: #2b2b2b;
+      --primary: #7aa0ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    header {
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 50px 20px;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: white;
+      color: #333;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark .toggle-btn {
+      background: #333;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    <h1>Nikul Suthar</h1>
+  </header>
+
+  <div class="container">
+    <div class="card center">
+      <p>Hello! I'm Nikul, a student who loves coding and making creative content. Learning every day is my goal.</p>
+    </div>
+    <div class="card">
+      <h2>About Me</h2>
+      <p>I study in 10th standard. I enjoy learning web development and experimenting with new ideas!</p>
+    </div>
+    <div class="card">
+      <h2>Hobbies</h2>
+      <ul>
+        <li>Content Creation</li>
+        <li>Learning Web Development</li>
+        <li>Designing Logos & Thumbnails</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:nikulsuthar90@gmail.com">nikulsuthar90@gmail.com</a></p>
+      <p><a href="secret.html" onclick="playClick()">Go to Secret Page 🔐</a></p>
+    </div>
+  </div>
+
+  <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+      const btn = document.querySelector('.toggle-btn');
+      btn.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+      playClick();
+    }
+
+    function playClick() {
+      const sound = document.getElementById("click-sound");
+      if (sound) sound.play();
+    }
+  </script>
+</body>
+</html>
